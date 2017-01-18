@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="in.codeangles.model.Student">
+ 		<id name="studentId">
+ 			<generator class="increment"/>
+ 		</id>
+ 		<property name="studentName"/>
+ 		<list name="address" table="add123">
+ 			<key column="id"/>
+ 			<list-index column="idx"/>
+ 			<element column="address" type="string"/>
+ 		</list>
+ 	</class>
+ </hibernate-mapping>
