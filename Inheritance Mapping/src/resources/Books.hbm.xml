@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+ 
+ <hibernate-mapping>
+ 	<class name="in.codeangles.model.Books" table="bookDetails" discriminator-value="book">
+ 		<id name="bookId">
+ 			<generator class="increment"/>
+ 		</id>
+ 		<discriminator column="bookType" type="string"/>
+ 		<property name="bookTitle"/>
+ 		<property name="author"/>
+ 		<property name="cost"/>
+ 		
+ 		<subclass name="in.codeangles.model.WBooks" discriminator-value="wb">
+ 			<property name="bookLang"/>
+ 		</subclass>
+ 		<subclass name="in.codeangles.model.SEBooks" discriminator-value="se">
+ 			<property name="specialFeature"/>
+ 		</subclass>
+ 		
+ 	</class>
+ </hibernate-mapping>
